@@ -1,0 +1,42 @@
+name: Publish npm packages
+on:
+    workflow_call:
+        inputs:
+            tag:
+                # npm tag (latest/next/beta/etc) to use
+                required: true
+                type: string
+            version:
+                # npm version
+                required: true
+                type: string
+            access:
+                # type of access 'restricted' or 'public'
+                required: false
+                type: string
+                default: public
+
+jobs:
+    publish:
+        runs-on: ubuntu-22.04
+        steps:
+            -   uses: actions/checkout@v1
+
+            -   uses: pnpm/action-setup@v2.2.2
+                with:
+                    version: 8
+
+            -   uses: actions/setup-node@v3
+                with:
+                    node-version: 18
+
+            -   name: Install packages
+                run: pnpm install
+
+            -   name: Package libs
+                run: pnpm run build
+
+            -   name: Publish @glowbuzzer/awlib
+                run: npm publish --tag ${{ inputs.tag }} --access ${{ inputs.access }}
+                env:
+                    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

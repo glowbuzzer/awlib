@@ -1,0 +1,14 @@
+name: Publish alpha npm packages
+on:
+    push:
+        tags:
+            - 'v*-alpha.*'
+
+jobs:
+    publish:
+        uses: ./.github/workflows/publish-package.yml
+        with:
+            tag: alpha
+            version: ${GITHUB_REF#refs/tags/v}
+            access: public
+        secrets: inherit
