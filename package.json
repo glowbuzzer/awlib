@@ -30,5 +30,8 @@
     "three": "^0.158.0",
     "three-stdlib": "^2.28.3",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "esbuild-plugin-svgr": "^2.1.0"
   }
 }

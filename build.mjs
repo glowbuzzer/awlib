@@ -1,5 +1,6 @@
 import esbuild from "esbuild"
 import fs from "fs"
+import svgrPlugin from "esbuild-plugin-svgr"
 
 const pkg = JSON.parse(fs.readFileSync("./package.json", "utf-8"))
 const externals = [
@@ -21,7 +22,8 @@ esbuild
         platform: "node",
         target: "node18",
         format: "esm",
-        external: externals
+        external: externals,
+        plugins: [svgrPlugin({ namedExport: "ReactComponent", exportType: "named" })]
     })
     .catch(e => {
         console.log(e)
