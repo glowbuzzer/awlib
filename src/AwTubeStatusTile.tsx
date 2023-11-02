@@ -100,7 +100,7 @@ export const AwTubeStatusTile = ({
     )
 }
 
-export const AwTubeTileDefinitionBuilder = (props: AwTubeStatusTileProps) =>
+export const AwTubeStatusTileDefinitionBuilder = (props: AwTubeStatusTileProps) =>
     DockTileDefinitionBuilder()
         .id("awtube")
         .placement(2, 0)
