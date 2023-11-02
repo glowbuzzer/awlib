@@ -24,7 +24,7 @@ export const StateIndicator = ({
         return null
     }
     return (
-        <StyledStateIndicator negative={negative}>
+        <StyledStateIndicator $negative={negative}>
             <div className={value ? "active" : ""}>{label}</div>
         </StyledStateIndicator>
     )

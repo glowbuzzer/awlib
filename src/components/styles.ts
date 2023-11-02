@@ -4,7 +4,7 @@
 
 import styled from "styled-components"
 
-export const StyledStateIndicator = styled.div<{ negative?: boolean }>`
+export const StyledStateIndicator = styled.div<{ $negative?: boolean }>`
     margin: 5px 0;
     display: flex;
     justify-content: space-between;
@@ -22,7 +22,7 @@ export const StyledStateIndicator = styled.div<{ negative?: boolean }>`
 
         &.active {
             background: ${props =>
-                props.negative ? props.theme.colorErrorBorder : props.theme.colorSuccessBorder};
+                props.$negative ? props.theme.colorErrorBorder : props.theme.colorSuccessBorder};
         }
     }
 `
