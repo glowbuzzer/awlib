@@ -31,6 +31,11 @@ export const AwTubeRobot = ({ children = null, parts, showFrames }: AwTubeRobotP
     const { frameIndex } = useKinematicsConfiguration(0)
     const { translation, rotation } = useFrame(frameIndex, false)
 
+    // no config fetched yet
+    if (!translation || !rotation) {
+        return null
+    }
+
     // This the position and rotation of the robot in the scene, from the robot's frame configuration
     const position = new Vector3().copy(translation as any).toArray()
     const quaternion = new Quaternion().copy(rotation as any).toArray()
