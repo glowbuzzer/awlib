@@ -11,6 +11,7 @@ import { PoweroffOutlined } from "@ant-design/icons"
 import { EStopButton } from "./components/EStopButton"
 import { RemoteControlButton } from "./components/RemoteControlButton"
 import { DigitalInputs, DigitalOutputs } from "./types"
+import { RgbStateIndicator } from "./components/RgbStateIndicator"
 
 const StyledDiv = styled.div`
     padding: 10px;
@@ -39,6 +40,7 @@ export const AwTubeStatusTile = ({
             <div className="buttons">
                 <RemoteControlButton size={60} />
                 <EStopButton size={60} />
+                <RgbStateIndicator size={60} />
             </div>
             <StateIndicator
                 label={
