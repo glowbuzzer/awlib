@@ -15,8 +15,8 @@
   "peerDependencies": {
     "@ant-design/icons": "^5.2.6",
     "@babel/core": "^7.23.2",
-    "@glowbuzzer/controls": "1.10.0-alpha.3",
-    "@glowbuzzer/store": "1.10.0-alpha.3",
+    "@glowbuzzer/controls": "^1.10.0-alpha.5",
+    "@glowbuzzer/store": "^1.10.0-alpha.5",
     "@react-three/drei": "^9.88.11",
     "@react-three/fiber": "^8.15.9",
     "@types/react": "^18.2.34",
