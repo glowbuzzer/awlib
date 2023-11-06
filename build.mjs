@@ -3,20 +3,26 @@ import fs from "fs"
 import svgrPlugin from "esbuild-plugin-svgr"
 
 const GITHUB_TAG_PREFIX = "refs/tags/"
-const [, , version_or_github_ref] = process.argv
+const [, , arg1] = process.argv
 
 const pkg = JSON.parse(fs.readFileSync("./package.json", "utf-8"))
 
-if (version_or_github_ref?.length) {
-    const version = version_or_github_ref.startsWith(GITHUB_TAG_PREFIX)
-        ? version_or_github_ref.substring(GITHUB_TAG_PREFIX.length)
-        : version_or_github_ref
+const watch = arg1 === "--watch"
 
-    console.log("Bumping version to", version)
-    pkg.version = version
-    fs.writeFileSync("./package.json", JSON.stringify(pkg, null, 2))
+if (watch) {
+    console.log("Watching for changes...")
 } else {
-    console.log("No version specified, not bumping version")
+    if (arg1?.length) {
+        const version = arg1.startsWith(GITHUB_TAG_PREFIX)
+            ? arg1.substring(GITHUB_TAG_PREFIX.length)
+            : arg1
+
+        console.log("Bumping version to", version)
+        pkg.version = version
+        fs.writeFileSync("./package.json", JSON.stringify(pkg, null, 2))
+    } else {
+        console.log("No version specified, not bumping version")
+    }
 }
 
 const externals = [
@@ -30,18 +36,29 @@ const externals = [
     .flat()
 
 console.log("externals", externals)
-esbuild
-    .build({
-        entryPoints: ["./src/index.ts"],
-        bundle: true,
-        outfile: "./dist/index.js",
-        platform: "node",
-        target: "node18",
-        format: "esm",
-        external: externals,
-        plugins: [svgrPlugin({ namedExport: "ReactComponent", exportType: "named" })]
+const options = {
+    entryPoints: ["./src/index.ts"],
+    bundle: true,
+    outfile: "./dist/index.js",
+    platform: "node",
+    target: "node18",
+    format: "esm",
+    external: externals,
+    plugins: [
+        svgrPlugin({ namedExport: "ReactComponent", exportType: "named" }),
+        {
+            name: "info",
+            setup(build) {
+                build.onEnd(() => console.log("Build complete", new Date().toISOString()))
+            }
+        }
+    ]
+}
+
+if (watch) {
+    esbuild.context(options).then(async c => {
+        await c.watch()
     })
-    .catch(e => {
-        console.log(e)
-        return process.exit(1)
-    })
+} else {
+    esbuild.build(options).catch(() => process.exit(1))
+}
