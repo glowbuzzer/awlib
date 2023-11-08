@@ -19,7 +19,7 @@ export const RgbStateIndicator = ({ size }) => {
                 const angle = (i / num_lights) * Math.PI * 2
                 const x = 50 + Math.cos(angle) * 40
                 const y = 50 + Math.sin(angle) * 40
-                return <circle cx={x} cy={y} r={8} fill={fill} />
+                return <circle key={i} cx={x} cy={y} r={8} fill={fill} />
             })}
         </svg>
     )
