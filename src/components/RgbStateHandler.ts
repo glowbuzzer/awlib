@@ -31,7 +31,7 @@ export const RgbStateHandler = () => {
         if (connected) {
             setIntegerOut(get_colour(state), true)
         }
-    }, [connected, state, setIntegerOut])
+    }, [connected, state])
 
     // this component is non-visible
     return null
