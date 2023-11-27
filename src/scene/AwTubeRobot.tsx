@@ -31,6 +31,12 @@ export const AwTubeRobot = ({ children = null, parts, showFrames }: AwTubeRobotP
     const { frameIndex } = useKinematicsConfiguration(0)
     const { translation, rotation } = useFrame(frameIndex, false)
 
+    if (!translation || !rotation) {
+        // indicates we don't have a valid config yet, and we're not ready to render anything
+        // once connected and first config is loaded, we will cache this in local storage
+        return null
+    }
+
     const position = new Vector3()
     const quaternion = new Quaternion()
 
