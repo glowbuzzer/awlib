@@ -16,7 +16,7 @@ type ResolvedPart = { url: string; buffer: ArrayBuffer }
 export function useLoadedRobotParts(parts: AwTubeRobotParts): AwTubeLoadedRobotParts {
     return Object.fromEntries(
         Object.entries(parts).map(([name, part]) => {
-            const object = useGLTF(`/assets/awtube/${part.filename}`).scene.clone()
+            const object = useGLTF(`/assets/awtube-parts-v2/${part.filename}`).scene.clone()
             return [
                 name,
                 {

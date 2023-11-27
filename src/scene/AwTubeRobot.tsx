@@ -4,7 +4,7 @@
 
 import * as React from "react"
 import { useFrame, useKinematicsConfiguration } from "@glowbuzzer/store"
-import { Group, Quaternion, Vector3 } from "three"
+import { Quaternion, Vector3 } from "three"
 import { AwTubeLoadedRobotParts } from "../types"
 import { AwKinematicsGroup } from "./AwKinematicsGroup"
 import { AwTubeBaseLink } from "./links/AwTubeBaseLink"
@@ -31,24 +31,18 @@ export const AwTubeRobot = ({ children = null, parts, showFrames }: AwTubeRobotP
     const { frameIndex } = useKinematicsConfiguration(0)
     const { translation, rotation } = useFrame(frameIndex, false)
 
-    // no config fetched yet
-    if (!translation || !rotation) {
-        return null
-    }
-
     // This the position and rotation of the robot in the scene, from the robot's frame configuration
-    const position = new Vector3().copy(translation as any).toArray()
-    const quaternion = new Quaternion().copy(rotation as any).toArray()
+    const position = new Vector3().copy(translation as any)
+    const quaternion = new Quaternion().copy(rotation as any)
+
+    // load the parts
+    // const parts = useMemo(() => useLoadedRobotParts(definition), [definition])
 
     // prettier-ignore
     // Render the complete chain
     return (
         <AwTubeKinChainProvider kinematicsConfigurationIndex={0} showFrames={showFrames}>
-            <group
-                position={position}
-                // @ts-ignore
-                quaternion={quaternion}
-                scale={1000}>
+            <group position={position} quaternion={quaternion} scale={1000}>
                 <AwTubeBaseLink parts={parts} />
                 <AwKinematicsGroup jointIndex={0} link={<AwTubeLink1 parts={parts} />}>
                     <AwKinematicsGroup jointIndex={1} link={<AwTubeLink2 parts={parts} />}>
