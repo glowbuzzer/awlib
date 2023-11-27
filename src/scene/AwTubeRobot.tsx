@@ -31,12 +31,12 @@ export const AwTubeRobot = ({ children = null, parts, showFrames }: AwTubeRobotP
     const { frameIndex } = useKinematicsConfiguration(0)
     const { translation, rotation } = useFrame(frameIndex, false)
 
-    // This the position and rotation of the robot in the scene, from the robot's frame configuration
-    const position = new Vector3().copy(translation as any)
-    const quaternion = new Quaternion().copy(rotation as any)
+    const position = new Vector3()
+    const quaternion = new Quaternion()
 
-    // load the parts
-    // const parts = useMemo(() => useLoadedRobotParts(definition), [definition])
+    // Copy the position and rotation of the robot in the scene, from the robot's frame configuration
+    translation && position.copy(translation as any)
+    rotation && quaternion.copy(rotation as any)
 
     // prettier-ignore
     // Render the complete chain
