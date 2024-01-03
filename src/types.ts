@@ -3,10 +3,13 @@
  */
 
 import { Group } from "three"
+import React from "react"
+import { JsxElement } from "typedoc/dist/lib/utils/jsx.elements"
 
 // all parts have a filename, which is the path to the GLTF model
 export type PartDefinition = {
     filename: string
+    base64: string
 }
 
 // once a part is loaded, it has an object (instance of THREE.Group)

@@ -1,37 +1,37 @@
 {
-  "name": "@glowbuzzer/awlib",
-  "version": "1.0.0",
-  "description": "AutomationWare utilities for Glowbuzzer React",
-  "main": "dist/index.js",
-  "exports": "./dist/index.js",
-  "types": "./dist/types/index.d.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --emitDeclarationOnly && node build.mjs"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "peerDependencies": {
-    "@ant-design/icons": "^5.2.6",
-    "@babel/core": "^7.23.2",
-    "@glowbuzzer/controls": "^1.10.0-alpha.5",
-    "@glowbuzzer/store": "^1.10.0-alpha.5",
-    "@react-three/drei": "^9.88.11",
-    "@react-three/fiber": "^8.15.9",
-    "@types/react": "^18.2.34",
-    "@types/three": "^0.158.1",
-    "esbuild": "^0.19.5",
-    "prettier": "^3.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-is": "^18.2.0",
-    "styled-components": "^6.1.0",
-    "three": "^0.158.0",
-    "three-stdlib": "^2.28.3",
-    "typescript": "^5.2.2"
-  },
-  "dependencies": {
-    "esbuild-plugin-svgr": "^2.1.0"
-  }
+    "name": "@glowbuzzer/awlib",
+    "version": "1.0.0",
+    "description": "AutomationWare utilities for Glowbuzzer React",
+    "main": "dist/index.js",
+    "exports": "./dist/index.js",
+    "types": "./dist/types/index.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc --emitDeclarationOnly && node build.mjs"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "peerDependencies": {
+        "@ant-design/icons": "^5.2.6",
+        "@babel/core": "^7.23.2",
+        "@glowbuzzer/controls": "^1.10.0-alpha.6",
+        "@glowbuzzer/store": "^1.10.0-alpha.6",
+        "@react-three/drei": "^9.88.11",
+        "@react-three/fiber": "^8.15.9",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-is": "^18.2.0",
+        "styled-components": "^6.1.0",
+        "three": "^0.158.0",
+        "three-stdlib": "^2.28.3",
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.34",
+        "@types/three": "^0.158.1",
+        "typescript": "^5.2.2",
+        "prettier": "^3.0.3",
+        "esbuild": "^0.19.5",
+        "esbuild-plugin-svgr": "^2.1.0"
+    }
 }
