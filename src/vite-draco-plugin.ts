@@ -1,7 +1,7 @@
 // vite-plugin-draco.js
-import fs from "fs"
-import https from "https"
-import path from "path"
+import * as fs from "fs"
+import * as https from "https"
+import * as path from "path"
 
 function downloadFile(url, dest) {
     return new Promise((resolve, reject) => {

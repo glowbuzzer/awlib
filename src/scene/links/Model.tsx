@@ -2,6 +2,7 @@
  * Copyright (c) 2024. Glowbuzzer. All rights reserved
  */
 
+import * as React from "react"
 import { useEffect, useState } from "react"
 import { DRACOLoader, GLTFLoader } from "three-stdlib"
 
@@ -19,7 +20,7 @@ export const Model = ({ base64, ...props }) => {
     const [model, setModel] = useState(null)
     useEffect(() => {
         function base64ToArrayBuffer(base64) {
-            const binaryString = window.atob(base64)
+            const binaryString = atob(base64)
             const len = binaryString.length
             const bytes = new Uint8Array(len)
             for (let i = 0; i < len; i++) {

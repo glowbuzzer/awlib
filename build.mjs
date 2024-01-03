@@ -37,9 +37,11 @@ const externals = [
 
 console.log("externals", externals)
 const options = {
-    entryPoints: ["./src/index.ts"],
+    tsconfig: "./tsconfig.standalone.json",
+    entryPoints: ["./src/index.ts", "./src/vite-draco-plugin.ts"],
     bundle: true,
-    outfile: "./dist/index.js",
+    outdir: "./dist",
+    // outfile: "./dist/index.js",
     platform: "node",
     target: "node18",
     format: "esm",

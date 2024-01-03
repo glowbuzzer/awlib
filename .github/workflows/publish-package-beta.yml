@@ -8,7 +8,7 @@ jobs:
     publish:
         uses: ./.github/workflows/publish-package.yml
         with:
-            tag: alpha
+            tag: beta
             version: ${GITHUB_REF#refs/tags/v}
             access: public
         secrets: inherit

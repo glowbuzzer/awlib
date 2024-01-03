@@ -1,3 +1,6 @@
 {
-    "extends": "../tsconfig.aw.json"
+    "extends": "../tsconfig.aw.json",
+    "compilerOptions": {
+        "jsx": "react"
+    }
 }
