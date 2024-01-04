@@ -5,7 +5,7 @@
 import * as React from "react"
 import { useFrame, useKinematicsConfiguration } from "@glowbuzzer/store"
 import { Quaternion, Vector3 } from "three"
-import { AwTubeLoadedRobotParts, AwTubeRobotParts } from "../types"
+import { AwTubeLoadedRobotParts } from "../types"
 import { AwKinematicsGroup } from "./AwKinematicsGroup"
 import { AwTubeBaseLink } from "./links/AwTubeBaseLink"
 import { AwTubeLink1 } from "./links/AwTubeLink1"
@@ -18,7 +18,7 @@ import { AwTubeKinChainProvider } from "../AwTubeKinChainProvider"
 
 type AwTubeRobotProps = {
     children?: React.ReactNode
-    parts: AwTubeRobotParts
+    parts: AwTubeLoadedRobotParts
     showFrames?: boolean
 }
 
