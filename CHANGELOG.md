@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/glowbuzzer/awlib/compare/v1.1.0...v1.1.1) (2024-01-05)
+
+
+### Chore
+
+* update gbr versions ([335d4b2](https://github.com/glowbuzzer/awlib/commit/335d4b2ad2430c2c6fae05a127344276c2b7b57b))
+
 ## [1.1.0](https://github.com/glowbuzzer/awlib/compare/v1.0.0-beta.3...v1.1.0) (2024-01-05)
 
 
