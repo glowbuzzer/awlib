@@ -2,6 +2,7 @@
  * Copyright (c) 2023. Glowbuzzer. All rights reserved
  */
 
+import * as React from "react"
 import { useDigitalInputs } from "@glowbuzzer/store"
 import { DigitalInputs } from "../types"
 

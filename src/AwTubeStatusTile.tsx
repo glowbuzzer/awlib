@@ -2,6 +2,7 @@
  * Copyright (c) 2023. Glowbuzzer. All rights reserved
  */
 
+import * as React from "react"
 import styled from "styled-components"
 import { DockTileDefinitionBuilder } from "@glowbuzzer/controls"
 import { useDigitalInputs, useDigitalOutputStates } from "@glowbuzzer/store"
