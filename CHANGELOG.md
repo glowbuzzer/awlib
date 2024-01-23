@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/glowbuzzer/awlib/compare/v1.1.1...v1.1.2) (2024-01-23)
+
+
+### Chore
+
+* fix compiler warnings ([73ad3d6](https://github.com/glowbuzzer/awlib/commit/73ad3d631dc6535648a623853c7f7249e6084985))
+
 ## [1.1.1](https://github.com/glowbuzzer/awlib/compare/v1.1.0...v1.1.1) (2024-01-05)
 
 
