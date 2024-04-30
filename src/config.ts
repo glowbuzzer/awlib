@@ -106,8 +106,8 @@ export const AwTubeL2InverseDynamicParams = [
             y: 0,
             z: -1
         },
-        damping: 1,
-        friction: 0.1
+        damping: 180.0,
+        friction: 30.0
     },
     {
         urdfFrame: {
@@ -141,8 +141,8 @@ export const AwTubeL2InverseDynamicParams = [
             y: 0,
             z: -1
         },
-        damping: 1,
-        friction: 0.1
+        damping: 175.0,
+        friction: 15.0
     },
     {
         urdfFrame: {
@@ -176,8 +176,8 @@ export const AwTubeL2InverseDynamicParams = [
             y: 0,
             z: 1
         },
-        damping: 1,
-        friction: 0.1
+        damping: 75.0,
+        friction: 15.0
     },
     {
         urdfFrame: {
@@ -211,8 +211,8 @@ export const AwTubeL2InverseDynamicParams = [
             y: 0,
             z: -1
         },
-        damping: 1,
-        friction: 0.1
+        damping: 25.0,
+        friction: 8.0
     },
     {
         urdfFrame: {
@@ -246,8 +246,8 @@ export const AwTubeL2InverseDynamicParams = [
             y: 0,
             z: 1
         },
-        damping: 1,
-        friction: 0.1
+        damping: 25.0,
+        friction: 8.0
     },
     {
         urdfFrame: {
@@ -282,6 +282,6 @@ export const AwTubeL2InverseDynamicParams = [
             z: -1
         },
         damping: 1,
-        friction: 0.1
+        friction: 2.5
     }
 ]
