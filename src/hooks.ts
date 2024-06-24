@@ -7,6 +7,11 @@ import { useGLTF } from "@react-three/drei"
 import { useEffect, useMemo, useState } from "react"
 import { DRACOLoader, GLTF, GLTFLoader } from "three-stdlib"
 import { suspend } from "suspend-react"
+import {
+    DIN_SAFETY_TYPE,
+    useSafetyDigitalInputList,
+    useSafetyDigitalInputState
+} from "@glowbuzzer/store"
 
 type ResolvedPart = { url: string; buffer: ArrayBuffer }
 
@@ -95,4 +100,20 @@ export function useLoadedRobotPartsWithEmbeddedAssets(
     }, [parts, resolver])
 
     return loaded
+}
+
+export function useManualKeyswitch() {
+    const safety_inputs = useSafetyDigitalInputList()
+    const keyswitch_index = safety_inputs.findIndex(
+        c => c.type === DIN_SAFETY_TYPE.DIN_SAFETY_TYPE_KEYSWITCH
+    )
+    return useSafetyDigitalInputState(keyswitch_index)
+}
+
+export function useDeadman() {
+    const safety_inputs = useSafetyDigitalInputList()
+    const deadman_index = safety_inputs.findIndex(
+        c => c.type === DIN_SAFETY_TYPE.DIN_SAFETY_TYPE_DEAD_MAN
+    )
+    return useSafetyDigitalInputState(deadman_index)
 }
