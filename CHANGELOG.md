@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.2.0](https://github.com/glowbuzzer/awlib/compare/v1.1.2...v1.2.0) (2024-06-27)
+
+
+### Feature
+
+* **#180:** Add tool config editor ([9a86058](https://github.com/glowbuzzer/awlib/commit/9a86058731023a4c3f6c8135abd5f7b84e18b216))
+* **#205:** Multiple mode support ([7c33cc2](https://github.com/glowbuzzer/awlib/commit/7c33cc2d85f7b7fffed12c733e70d220002baf72))
+
+
+### Chore
+
+* Initial work on IBT modes ([7c33cc2](https://github.com/glowbuzzer/awlib/commit/7c33cc2d85f7b7fffed12c733e70d220002baf72))
+* refactor dock tile definitions plus other changes ([04bf995](https://github.com/glowbuzzer/awlib/commit/04bf995faef27354b3cd699be38c4e44e761e0b6))
+* refactor tsconfig files ([7c33cc2](https://github.com/glowbuzzer/awlib/commit/7c33cc2d85f7b7fffed12c733e70d220002baf72))
+* rename AwTube Status tile ([e86b6d7](https://github.com/glowbuzzer/awlib/commit/e86b6d7ea20d41a092f7f387457f1e34e0afa351))
+* Update L2 friction params ([a7e8683](https://github.com/glowbuzzer/awlib/commit/a7e86834730e2efb7bc86f46d1f5bcb6470c7750))
+
 ## [1.1.2](https://github.com/glowbuzzer/awlib/compare/v1.1.1...v1.1.2) (2024-01-23)
 
 
