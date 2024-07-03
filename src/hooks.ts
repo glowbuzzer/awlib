@@ -101,19 +101,3 @@ export function useLoadedRobotPartsWithEmbeddedAssets(
 
     return loaded
 }
-
-export function useManualKeyswitch() {
-    const safety_inputs = useSafetyDigitalInputList()
-    const keyswitch_index = safety_inputs.findIndex(
-        c => c.type === DIN_SAFETY_TYPE.DIN_SAFETY_TYPE_KEYSWITCH
-    )
-    return useSafetyDigitalInputState(keyswitch_index)
-}
-
-export function useDeadman() {
-    const safety_inputs = useSafetyDigitalInputList()
-    const deadman_index = safety_inputs.findIndex(
-        c => c.type === DIN_SAFETY_TYPE.DIN_SAFETY_TYPE_DEAD_MAN
-    )
-    return useSafetyDigitalInputState(deadman_index)
-}

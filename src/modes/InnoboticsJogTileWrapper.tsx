@@ -3,18 +3,22 @@
  */
 
 import * as React from "react"
-import { useDeadman, useManualKeyswitch } from "@glowbuzzer/awlib"
-import { useConnection } from "@glowbuzzer/store"
+import {
+    ManualMode,
+    useAutoModeActiveInput,
+    useConnection,
+    useMotionEnabledInput
+} from "@glowbuzzer/store"
 import { DockTileDisabled, useGlowbuzzerMode, useOperationEnabled } from "@glowbuzzer/controls"
 
-function get_message(op: boolean, keyswitch: boolean, mode: string, deadman: boolean) {
+function get_message(op: boolean, autoMode: boolean, mode: ManualMode, deadman: boolean) {
     if (!op) {
         return "Operation Not Enabled"
     }
-    if (!keyswitch) {
-        return "Manual Keyswitch Not Engaged"
+    if (autoMode) {
+        return "Manual Mode Not Selected"
     }
-    if (mode !== "jog") {
+    if (mode !== ManualMode.JOG) {
         return "Jog Mode Not Selected"
     }
     if (!deadman) {
@@ -23,8 +27,8 @@ function get_message(op: boolean, keyswitch: boolean, mode: string, deadman: boo
 }
 
 export const InnoboticsJogTileWrapper = ({ children }) => {
-    const [{ actValue: keyswitch }] = useManualKeyswitch()
-    const [{ actValue: deadman }] = useDeadman()
+    const autoMode = useAutoModeActiveInput()
+    const motionAllowed = useMotionEnabledInput()
     const { connected } = useConnection()
     const op = useOperationEnabled()
     const { mode } = useGlowbuzzerMode()
@@ -33,7 +37,7 @@ export const InnoboticsJogTileWrapper = ({ children }) => {
         return <DockTileDisabled children={children} />
     }
 
-    const message = get_message(op, keyswitch, mode, deadman)
+    const message = get_message(op, autoMode, mode as ManualMode, motionAllowed)
     if (message) {
         return <DockTileDisabled children={children} content={message} />
     }

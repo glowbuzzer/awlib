@@ -3,44 +3,60 @@
  */
 
 import * as React from "react"
-import { GlowbuzzerModeProvider } from "@glowbuzzer/controls"
-import {
-    DIN_SAFETY_TYPE,
-    useSafetyDigitalInputList,
-    useSafetyDigitalInputState
-} from "@glowbuzzer/store"
+import { useEffect } from "react"
+import { GlowbuzzerModeContextType, GlowbuzzerModeProvider } from "@glowbuzzer/controls"
+import { ManualMode, useAutoModeActiveInput, useManualMode } from "@glowbuzzer/store"
 
 export const InnoboticsModeProvider = ({ children }) => {
-    const [requestedMode, setRequestedMode] = React.useState("auto")
-    const safety_inputs = useSafetyDigitalInputList()
-    const keyswitch_index = safety_inputs.findIndex(
-        c => c.type === DIN_SAFETY_TYPE.DIN_SAFETY_TYPE_KEYSWITCH
-    )
-    const switched = useSafetyDigitalInputState(keyswitch_index)
+    const autoModeEnabled = useAutoModeActiveInput()
+    const [manualMode, setManualMode] = useManualMode()
 
-    const mode = switched ? (requestedMode === "auto" ? "jog" : requestedMode) : "auto"
+    useEffect(() => {
+        // whenever we switch between auto/manual, ensure we revert to disabled mode
+        // (applies equally to auto and manual mode, even though this doesn't affect auto mode)
+        setManualMode(ManualMode.DISABLED)
+    }, [autoModeEnabled])
 
-    const context = {
-        mode,
-        setMode: setRequestedMode,
-        modes: {
-            auto: {
-                name: "Auto",
-                disabled: switched
-            },
-            jog: {
-                name: "Jog",
-                disabled: !switched
-            },
-            ["test-program"]: {
-                name: "Test Program",
-                disabled: !switched
-            },
-            ["hand-guided"]: {
-                name: "Hand Guided",
-                disabled: !switched || keyswitch_index < 0
-            }
+    function setMode(mode: ManualMode | "auto") {
+        if (mode === "auto") {
+            setManualMode(ManualMode.DISABLED)
+        } else {
+            setManualMode(mode)
         }
+    }
+
+    const mode = autoModeEnabled ? "auto" : manualMode
+
+    const context: GlowbuzzerModeContextType = {
+        mode,
+        setMode,
+        modes: [
+            {
+                value: "auto",
+                name: "Auto",
+                disabled: !autoModeEnabled
+            },
+            {
+                value: ManualMode.DISABLED,
+                name: "Disabled",
+                disabled: autoModeEnabled
+            },
+            {
+                value: ManualMode.JOG,
+                name: "Jog",
+                disabled: autoModeEnabled
+            },
+            {
+                value: ManualMode.TEST_PROGRAM,
+                name: "Test Program",
+                disabled: autoModeEnabled
+            },
+            {
+                value: ManualMode.HAND_GUIDED,
+                name: "Hand Guided",
+                disabled: autoModeEnabled
+            }
+        ]
     }
 
     return <GlowbuzzerModeProvider context={context}>{children}</GlowbuzzerModeProvider>
