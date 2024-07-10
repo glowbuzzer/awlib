@@ -3,15 +3,9 @@
  */
 
 import { AwTubeLoadedRobotParts, AwTubeRobotParts } from "./types"
-import { useGLTF } from "@react-three/drei"
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useState } from "react"
 import { DRACOLoader, GLTF, GLTFLoader } from "three-stdlib"
 import { suspend } from "suspend-react"
-import {
-    DIN_SAFETY_TYPE,
-    useSafetyDigitalInputList,
-    useSafetyDigitalInputState
-} from "@glowbuzzer/store"
 
 type ResolvedPart = { url: string; buffer: ArrayBuffer }
 
