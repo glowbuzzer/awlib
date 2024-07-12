@@ -2,12 +2,13 @@
  * Copyright (c) 2023. Glowbuzzer. All rights reserved
  */
 
+import React from "react"
 // @ts-ignore
 import { ReactComponent } from "./estop.svg"
-import { useEstop } from "@glowbuzzer/store"
+import { useEstopInput } from "@glowbuzzer/store"
 
 export const EStopButton = ({ size }) => {
-    const active = useEstop()
+    const active = useEstopInput()
 
     return (
         <ReactComponent
