@@ -12,11 +12,11 @@ dependencies:
     specifier: ^7.23.2
     version: 7.23.2
   '@glowbuzzer/controls':
-    specifier: ^1.14.0-beta.6
-    version: 1.14.0-beta.6(@types/react@18.2.34)(@types/three@0.158.1)(react-dom@18.2.0)(redux@4.2.1)
+    specifier: ^1.14.0-beta.9
+    version: 1.14.0-beta.9(@types/react@18.2.34)(@types/three@0.158.1)(react-dom@18.2.0)(redux@4.2.1)
   '@glowbuzzer/store':
-    specifier: ^1.14.0-beta.6
-    version: 1.14.0-beta.6(@types/react@18.2.34)(react-dom@18.2.0)(redux@4.2.1)
+    specifier: ^1.14.0-beta.9
+    version: 1.14.0-beta.9(@types/react@18.2.34)(react-dom@18.2.0)(redux@4.2.1)
   '@react-three/drei':
     specifier: ^9.88.11
     version: 9.88.11(@react-three/fiber@8.15.9)(@types/three@0.158.1)(react-dom@18.2.0)(react@18.2.0)(three@0.158.0)
@@ -573,10 +573,10 @@ packages:
     dev: true
     optional: true
 
-  /@glowbuzzer/controls@1.14.0-beta.6(@types/react@18.2.34)(@types/three@0.158.1)(react-dom@18.2.0)(redux@4.2.1):
-    resolution: {integrity: sha512-S9f29Qj5nUHo4qRF7sKpFWnq0Fkc3Aiw0bporPJTidVKDA2j+lkYkgRn2YlN/FjRTUMCB121xCDtmAUS3oT7uw==}
+  /@glowbuzzer/controls@1.14.0-beta.9(@types/react@18.2.34)(@types/three@0.158.1)(react-dom@18.2.0)(redux@4.2.1):
+    resolution: {integrity: sha512-3lsqfVu5WXbiEDr90crGsZB1H+ij+Myf0enGahNsZQ0VOD1zyjEd540CFN33DFURj+zo9/aoHmkEBECYBPyz5A==}
     dependencies:
-      '@glowbuzzer/store': 1.14.0-beta.6(@types/react@18.2.34)(react-dom@18.2.0)(redux@4.2.1)
+      '@glowbuzzer/store': 1.14.0-beta.9(@types/react@18.2.34)(react-dom@18.2.0)(redux@4.2.1)
     optionalDependencies:
       '@ant-design/icons': 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@react-three/drei': 9.88.11(@react-three/fiber@8.15.9)(@types/three@0.158.1)(react-dom@18.2.0)(react@18.2.0)(three@0.158.0)
@@ -610,8 +610,8 @@ packages:
       - redux
     dev: false
 
-  /@glowbuzzer/store@1.14.0-beta.6(@types/react@18.2.34)(react-dom@18.2.0)(redux@4.2.1):
-    resolution: {integrity: sha512-9Y8+9nA+P4klKSMAUPgRHU8fYcz8Xxl2oRk6+4y4b8vr7NOrY+XErZURL68YiVwR8lgwnWaKGcX790s+kkQqjw==}
+  /@glowbuzzer/store@1.14.0-beta.9(@types/react@18.2.34)(react-dom@18.2.0)(redux@4.2.1):
+    resolution: {integrity: sha512-ZHdSIXUuDed3gHLWXIl7f93QojMBtyRoXCRNg0PtX9i6vnsc2eszkcx+ksCcULKm5z6mmc8nMFgFfwqthqgCWw==}
     optionalDependencies:
       '@reduxjs/toolkit': 1.9.7(react-redux@8.1.3)(react@18.2.0)
       react: 18.2.0
