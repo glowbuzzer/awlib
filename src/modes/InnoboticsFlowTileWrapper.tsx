@@ -3,25 +3,16 @@
  */
 
 import * as React from "react"
-import {
-    ManualMode,
-    useAutoModeActiveInput,
-    useConnection,
-    useEnablingSwitchInput
-} from "@glowbuzzer/store"
-import {
-    DockTileDisabled,
-    FlowCustomContextProvider,
-    useGlowbuzzerMode
-} from "@glowbuzzer/controls"
+import { ManualMode, useAutoModeActiveInput, useEnablingSwitchInput } from "@glowbuzzer/store"
+import { FlowCustomContextProvider, useGlowbuzzerMode } from "@glowbuzzer/controls"
 
 export const InnoboticsFlowTileWrapper = ({ children }) => {
     const autoMode = useAutoModeActiveInput()
     const enablingSwitch = useEnablingSwitchInput()
-    const { mode, modes } = useGlowbuzzerMode()
+    const { mode } = useGlowbuzzerMode()
 
     function get_message() {
-        if (autoMode || mode !== ManualMode.TEST_PROGRAM) {
+        if (!autoMode && mode !== ManualMode.TEST_PROGRAM) {
             return "Auto or Test Program Mode not selected"
         }
         if (!autoMode && !enablingSwitch) {
