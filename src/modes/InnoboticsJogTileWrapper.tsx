@@ -4,10 +4,12 @@
 
 import * as React from "react"
 import {
+    MACHINETARGET,
     ManualMode,
     useAutoModeActiveInput,
     useConnection,
-    useEnablingSwitchInput
+    useEnablingSwitchInput,
+    useMachine
 } from "@glowbuzzer/store"
 import { DockTileDisabled, useGlowbuzzerMode } from "@glowbuzzer/controls"
 
@@ -16,10 +18,15 @@ export const InnoboticsJogTileWrapper = ({ children }) => {
     const enablingSwitch = useEnablingSwitchInput()
     const { connected } = useConnection()
     const { mode, modes } = useGlowbuzzerMode()
+    const machine = useMachine()
+    const sim = machine.requestedTarget === MACHINETARGET.MACHINETARGET_SIMULATION
 
     const current = modes.find(m => m.value === mode)
 
     function get_message() {
+        if (sim) {
+            return null
+        }
         if (autoMode) {
             return "Manual Mode Not Selected"
         }
