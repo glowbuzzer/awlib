@@ -42,7 +42,8 @@ export const AwTubeKinChainProvider = ({
 
     // currently only support 5x6 kin chain params (6-dof kins)
     if (kinChainParams.numCols !== 5 || kinChainParams.numRows !== 6) {
-        throw new Error("Invalid kin chain params, expected 5 cols and six rows")
+        console.error("Invalid kin chain params, expected 5x6 matrix")
+        return null
     }
 
     const dh: DhMatrix[] = [0, 1, 2, 3, 4, 5].map(row => {
