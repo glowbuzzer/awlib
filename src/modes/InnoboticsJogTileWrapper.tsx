@@ -9,7 +9,7 @@ import {
     useAutoModeActiveInput,
     useConnection,
     useEnablingSwitchInput,
-    useMachine
+    useMachineTargetState
 } from "@glowbuzzer/store"
 import { DockTileDisabledWithNestedSupport, useGlowbuzzerMode } from "@glowbuzzer/controls"
 
@@ -17,9 +17,9 @@ export const InnoboticsJogTileWrapper = ({ children }) => {
     const autoMode = useAutoModeActiveInput()
     const enablingSwitch = useEnablingSwitchInput()
     const { connected } = useConnection()
+    const [, requestedTarget] = useMachineTargetState()
     const { mode, modes } = useGlowbuzzerMode()
-    const machine = useMachine()
-    const sim = machine.requestedTarget === MACHINETARGET.MACHINETARGET_SIMULATION
+    const sim = requestedTarget === MACHINETARGET.MACHINETARGET_SIMULATION
 
     const current = modes.find(m => m.value === mode)
 
