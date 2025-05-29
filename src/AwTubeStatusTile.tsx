@@ -43,14 +43,7 @@ export const AwTubeStatusTile = ({
                 <EStopButton size={60} />
                 <RgbStateIndicator size={60} />
             </div>
-            <StateIndicator
-                label={
-                    <>
-                        <PoweroffOutlined /> POWER
-                    </>
-                }
-                value={inputs[DigitalInputs.POWER]}
-            />
+            <StateIndicator label={<>POWER</>} value={inputs[DigitalInputs.POWER]} />
             <StateIndicator
                 label={"SAFE STOP"}
                 negative
