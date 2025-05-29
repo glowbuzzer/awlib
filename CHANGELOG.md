@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/glowbuzzer/awlib/compare/v1.2.1...v1.2.2) (2025-05-29)
+
+
+### Bug Fix
+
+* AwTubeStatusTile.tsx compile issue ([b719b86](https://github.com/glowbuzzer/awlib/commit/b719b86d39a187582d266911ff35532a998b77e8))
+
 ## [1.2.1](https://github.com/glowbuzzer/awlib/compare/v1.2.0...v1.2.1) (2025-05-29)
 
 
