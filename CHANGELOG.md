@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/glowbuzzer/awlib/compare/v1.2.0...v1.2.1) (2025-05-29)
+
+
+### Chore
+
+* update awlib dependencies ([4708bf7](https://github.com/glowbuzzer/awlib/commit/4708bf7e3d820c962ef4ea3c4b65d60829ae379b))
+
 ## [1.2.0](https://github.com/glowbuzzer/awlib/compare/v1.1.2...v1.2.0) (2024-10-17)
 
 
